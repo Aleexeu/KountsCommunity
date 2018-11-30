@@ -9,27 +9,15 @@ bot.on('guildMemberAdd', member =>
 );
 
 bot.on('guildMemberAdd', member => {
-    if (member.guild.id !== "476923523617783808") return;
+    if (member.guild.id !== "506629091902881807") return;
     let avatar = member.user.avatarURL
     let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(avatar)
-        .setTitle("** <a:Partness:506963369157197824> bem-vindo**")
-        .addField('Bem vindo(a)!', `Bem vindo(a) ${member} Ao servidor biscoitinho lindo!`)
+        .setTitle("**BEM-VINDO**")
+        .addField('Bem vindo(a)!', `Olá ${member}, seja bem-vindo ao nosso grupo discord, bom esse grupo discord é do nosso servidor de minecraft, para entrar no servidor basta entrar no ip:\n \njogar.hudymc.tk (MANUTENÇÃO)\n \nEspero que você goste do nosso servidor, chame seus amigos!`)
         .setTimestamp()
-    bot.channels.get('512626706138267648').send({embed})
-
-});
-
-bot.on("guildMemberRemove", async member => {
-    if (member.guild.id !== "476923523617783808") return;
-    let avatar = member.user.avatarURL
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(avatar)
-        .addField('Saida!', `Um biscoitinho saiu, o nick dele é ${member}, espero que ele volte.`)
-        .setTimestamp()
-    bot.channels.get('512626706138267648').send({embed})
+    bot.channels.get('509055249110007828').send({embed})
 
 });
 
@@ -46,35 +34,15 @@ fs.readdir("./comandos", (err, files) => {
 
 bot.on("message", async message => {
     if (!message.member.hasPermission("ADMINISTRATOR")) return; {
-  if (message.content.startsWith('https://discord.gg/')) {
+  if (message.content.startsWith('https://discord.gg/', 'https://discord.gg/invite')) {
         message.delete();
         return message.channel.send(`
-<a:Alerta:501028184641241108> Alerta, o ${message.author} está tentando divulgar outro grupo discord! 
+<a:Alerta:501028184641241108> Alerta, o ${message.author} estÃ¡ tentando divulgar outro grupo discord! 
 <a:Alerta:501028184641241108>`);
         
     }
   } 
 
-});
-
-bot.on('ready', () =>{
-    let status = [
-        {name: `Neste servidor tem ${bot.users.size} memebros`, type: 'STREAMING', url: 'https://twitch.tv/biscoito'},
-        {name: `${bot.users.size} <- no servidor agora`, type: 'LISTENING'},
-      ];
-      
-      //STREAMING = Transmitindo
-      //LISTENING = Ouvindo
-      //PLAYING = Jogando
-      //WATCHING = Assistindo
-      
-        function setStatus() {
-            let randomStatus = status[Math.floor(Math.random() * status.length)];
-            bot.user.setPresence({game: randomStatus});
-        }
-      
-        setStatus();
-        setInterval(() => setStatus(), 10000);  //10000 = 10Ms = 10 segundos
 });
 
 bot.on('message', message => {
@@ -92,4 +60,4 @@ bot.on('message', message => {
     if(arquivocmd) arquivocmd.run(bot,message,args);
 });
 
-bot.login(process.env.BOT_TOKEN);
+bot.login(config.token);
