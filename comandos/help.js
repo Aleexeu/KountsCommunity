@@ -20,7 +20,7 @@ message.channel.send(embedA).then(message=>{
 var embedB = new Discord.RichEmbed()
 
 .setColor(0x0000)
-.setDescription(' ㅤㅤㅤㅤㅤㅤ 🎗 <@517494401581318175> | Comandos 🎗 ㅤㅤㅤㅤㅤㅤ\n \n \nOs emojis abaixo mostraram alguns comandos.\n \nO que os emojis fazem?\n \n \n⬅️ : Ele volta pro para o inicio\n \n \n👔 Social: comandos dos membros\n \n \n📌 ADM: comandos de punições e etc...\n \n \n🎲 Diversão: comandos para se divertir!')
+.setDescription(' ㅤㅤㅤㅤㅤㅤ 🎗 <@517494401581318175> | Comandos 🎗 ㅤㅤㅤㅤㅤㅤ\n \n \nOs emojis abaixo mostraram alguns comandos.\n \nO que os emojis fazem?\n \n \n👈 : Ele volta pro para o inicio\n \n \n👔 Social: comandos dos membros\n \n \n📌 ADM: comandos de punições e etc...\n \n \n🎲 Diversão: comandos para se divertir!')
 .setTimestamp()
 .setThumbnail(message.client.user.avatarURL)
 
